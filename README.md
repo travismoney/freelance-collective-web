@@ -28,6 +28,7 @@ tsconfig.spec.json
 First install the dependencies/requirements with:
 ```
 1. Ensure to have node.js, npm and Angular CLI installed.
+
 2. Install all the required dependencies by running `npm install`
 ```
 
