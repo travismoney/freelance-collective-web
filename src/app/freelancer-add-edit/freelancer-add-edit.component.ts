@@ -83,7 +83,7 @@ export class FreelancerAddEditComponent implements OnInit {
                 icon: 'error',
                 title: err.error.message,
                 text: err.error.description,
-                width: '400px'
+                width: '350px'
               });
             }
           }

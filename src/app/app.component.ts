@@ -6,6 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from './core/core.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',
@@ -72,13 +73,26 @@ export class AppComponent implements OnInit {
   }
 
   deleteFreelancer(id: string){
-    this._httpService.deleteFreelancer(id).subscribe({
-      next: (res) => {
-        this._coreService.openSnackBar('Freelancer deleted succesfully!', 'done')
-        this.getFreelancers();
-      },
-      error: console.log
-    })
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true,
+      width: '350px'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._httpService.deleteFreelancer(id).subscribe({
+          next: (res) => {
+            this._coreService.openSnackBar('Freelancer deleted successfully!', 'done')
+            this.getFreelancers();
+          },
+          error: console.log
+        });
+      }
+    });
   }
 
   openEditForm(data: any) {
