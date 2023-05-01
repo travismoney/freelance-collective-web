@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../services/http.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-freelancer-add-edit',
@@ -77,6 +78,14 @@ export class FreelancerAddEditComponent implements OnInit {
           },
           error: (err: any) => {
             console.log(err)
+            if (err.status === 422) {
+              Swal.fire({
+                icon: 'error',
+                title: err.error.message,
+                text: err.error.description,
+                width: '400px'
+              });
+            }
           }
         })
       }else{
@@ -86,12 +95,18 @@ export class FreelancerAddEditComponent implements OnInit {
           },
           error: (err: any) => {
             console.log(err)
+            if (err.status === 422) {
+              Swal.fire({
+                icon: 'error',
+                title: err.error.message,
+                text: err.error.description,
+                width: '400px'
+              });
+            }
           }
         })
       }
     } else {
-      // If the form is not valid, mark all form fields as touched
-      // so that any validation errors are displayed
       Object.values(this.freelancerForm.controls).forEach(control => {
         control.markAsTouched();
       });
