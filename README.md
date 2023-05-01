@@ -33,9 +33,9 @@ First install the dependencies/requirements with:
 
 ## Developing and debugging locally
 ```
-a) After installing all the required dependencies, run this command `npm run ng serve`
+1. After installing all the required dependencies, run this command `npm run ng serve`
 
-b) This will start the server on your local machine. You can access the website at http://localhost:4200/
+2. This will start the server on your local machine. You can access the website at http://localhost:4200/
 ```
 
 ## Hosted Version
