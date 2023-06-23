@@ -1,6 +1,6 @@
 # Freelancer Collective Web
 
-Angular Application for Freelancers Directory (ETIQA IT Interview Assessment)
+Angular Application for Freelancers Directory
 
 # Folder & File Structure
 
